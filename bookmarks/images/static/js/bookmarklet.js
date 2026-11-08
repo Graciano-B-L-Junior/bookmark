@@ -4,12 +4,21 @@ const minWidth = 250;
 const minHeight = 250;
 
 // load CSS
+<<<<<<< HEAD
 var head = document.getElementsByTagName('head')[0];  // Get HTML head element
 var link = document.createElement('link'); // Create new link Element
 link.rel = 'stylesheet'; // set the attributes for link element
 link.type = 'text/css';
 link.href = styleUrl + '?r=' + Math.floor(Math.random()*9999999999999999);
 head.appendChild(link);  // Append link element to HTML head
+=======
+var head = document.getElementsByTagName('head')[0];
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = styleUrl + '?r=' + Math.floor(Math.random()*9999999999999999);
+head.appendChild(link);
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac
 
 // load HTML
 var body = document.getElementsByTagName('body')[0];
@@ -18,11 +27,19 @@ boxHtml = `
     <a href="#" id="close">&times;</a>
     <h1>Select an image to bookmark:</h1>
     <div class="images"></div>
+<<<<<<< HEAD
   </div>`;
 body.innerHTML += boxHtml;
 
 function bookmarkletLaunch() {
   bookmarklet = document.getElementById('bookmarklet');
+=======
+   </div>`;
+body.innerHTML += boxHtml;
+
+function bookmarkletLaunch() {
+  var bookmarklet = document.getElementById('bookmarklet');
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac
   var imagesFound = bookmarklet.querySelector('.images');
 
   // clear images found
@@ -32,6 +49,7 @@ function bookmarkletLaunch() {
 
   // close event
   bookmarklet.querySelector('#close')
+<<<<<<< HEAD
              .addEventListener('click', function(){
     bookmarklet.style.display = 'none'
   });
@@ -41,15 +59,33 @@ function bookmarkletLaunch() {
   images.forEach(image => {
     if(image.naturalWidth >= minWidth
        && image.naturalHeight >= minHeight)
+=======
+    .addEventListener('click', function() {
+      bookmarklet.style.display = 'none';
+    });
+
+  // find images in the DOM with the minimum dimensions
+  var images = document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]');
+  images.forEach(image => {
+    if (image.naturalWidth >= minWidth
+        && image.naturalHeight >= minHeight)
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac
     {
       var imageFound = document.createElement('img');
       imageFound.src = image.src;
       imagesFound.append(imageFound);
     }
+<<<<<<< HEAD
   })
 
   // select image event
   imagesFound.querySelectorAll('img').forEach(image => {
+=======
+  });
+
+
+   imagesFound.querySelectorAll('img').forEach(image => {
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac
     image.addEventListener('click', function(event){
       imageSelected = event.target;
       bookmarklet.style.display = 'none';
@@ -60,7 +96,17 @@ function bookmarkletLaunch() {
                   '_blank');
     })
   })
+<<<<<<< HEAD
 }
 
 // launch the bookmkarklet
 bookmarkletLaunch();
+=======
+
+}
+
+// launch the bookmarklet
+bookmarkletLaunch();
+
+
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac

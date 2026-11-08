@@ -3,6 +3,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
   <h1>Dashboard</h1>
   {% with total_images_created=request.user.images_created.count %}
     <p>Welcome to your dashboard. You have bookmarked {{ total_images_created }} image{{ total_images_created|pluralize }}.</p>
@@ -10,3 +11,16 @@
   <p>Drag the following button to your bookmarks toolbar to bookmark images from other websites → <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">Bookmark it</a></p>
   <p>You can also <a href="{% url "edit" %}">edit your profile</a> or <a href="{% url "password_change" %}">change your password</a>.</p>
 {% endblock %}
+=======
+    <h1>Dashboard</h1>
+    {% with total_images_created=request.user.images_created.count %}
+        <p>Welcome to your dashboard. You have bookmarked {{ total_images_created }} image{{ total_images_created|pluralize }}.</p>
+    {% endwith %}
+    <p>Drag the following button to your bookmarks toolbar to bookmark images from other websites &rarr; 
+        <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">Bookmark it</a>
+    </p>
+    <p>You can also 
+        <a href="{% url "edit" %}">edit your profile</a> or <a href="{% url "password_change" %}">change your password</a>.
+    </p>
+{% endblock %}
+>>>>>>> d4dca16e3d65c6052f86761854a51aaddbd630ac
