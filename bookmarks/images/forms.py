@@ -1,8 +1,10 @@
-from django import forms
-from .models import Image
 import requests
+from django import forms
 from django.core.files.base import ContentFile
 from django.utils.text import slugify
+
+from .models import Image
+
 
 class ImageCreateForm(forms.ModelForm):
     class Meta:
@@ -38,5 +40,3 @@ class ImageCreateForm(forms.ModelForm):
         if commit:
             image.save()
         return image
-
-    
